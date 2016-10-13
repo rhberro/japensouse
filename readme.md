@@ -29,5 +29,8 @@ gulp
 php artisan migrate --seed
 ```
 
+
+> **Nota:** Você precisa configurar seu banco de dados dentro do arquivo .env antes de executar o último comando da lista de instalação, caso contrário o comando vai resultar em um erro e sua aplicação não vai funcionar.
+
 ## Licença
 O projeto Japensouse é uma aplicação open-source disponibilizada nos termos da  licença [MIT](http://opensource.org/licenses/MIT).
