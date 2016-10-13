@@ -1,7 +1,7 @@
 # Japensouse
 
 [ ![StyleCI](https://styleci.io/repos/70777400/shield?branch=master)](https://styleci.io/repos/70777400)
-[ ![Codeship Status for rhberro/japensouse](https://app.codeship.com/projects/a9b77090-7341-0134-92cd-7e557d266949/status?branch=master)](https://app.codeship.com/projects/178828)
+[ ![Build Status](https://travis-ci.org/rhberro/japensouse.svg?branch=master)](https://travis-ci.org/rhberro/japensouse)
 
 ## Descrição
 
