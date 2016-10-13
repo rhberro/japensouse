@@ -1,0 +1,14 @@
+language: php
+
+php:
+  - 5.5.9
+
+before_script:
+  - cp .env.example .env
+  - composer install --no-interaction
+  - npm install
+  - php artisan key:generate
+  - gulp
+
+script:
+  - vendor/bin/phpunit
