@@ -1,0 +1,26 @@
+
+/**
+ * Desabilita a responsividade do bootstrap.
+ */
+.container {
+    width: 970px !important;
+}
+
+/**
+ * Custom.
+ */
+.berro-gravatar-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.berro-error-body {
+    .container {
+        margin-top: 70px;
+    }
+
+    h1, i {
+        font-size: 10em;
+        font-weight: bold;
+    }
+}
