@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ route('home') }}">
-                Japensouse
+                {{ config('app.name') }}
             </a>
         </div>
 
@@ -23,15 +23,11 @@
             @endif
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            @if (Auth::guest())
-                <li><a href="{{ route('login') }}">Entrar</a></li>
-            @else
-                <li><a href="{{ route('logout') }}">Saír</a></li>
-            @endif
-        </ul>
-
         @if (Auth::check())
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ route('logout') }}">Saír</a></li>
+            </ul>
+
             <p class="navbar-text navbar-right">Olá, <a href="{{ route('users.show', auth()->id()) }}" class="navbar-link">{{ auth()->user()->name }}</a></p>
         @endif
     </div>
