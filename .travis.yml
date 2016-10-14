@@ -3,6 +3,8 @@ language: php
 php:
   - 5.5.9
 
+sudo: false
+
 before_script:
   - cp .env.example .env
   - composer install --no-interaction
@@ -11,6 +13,7 @@ before_script:
   - npm install underscore
   - php artisan key:generate
   - gulp
+
 
 script:
   - vendor/bin/phpunit
