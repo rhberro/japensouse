@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
@@ -28,6 +29,15 @@ class PasswordController extends Controller
      */
     protected $redirectTo = '/';
 
+    /**
+     * Assunto do email enviado para resetar a senha de
+     * acesso do usuário.
+     *
+     * @var string
+     */
+    protected $subject = 'Link para resetar sua senha';
+
+    /**
      * Create a new password controller instance.
      *
      * @return void
