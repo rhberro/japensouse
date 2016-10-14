@@ -14,9 +14,9 @@ $this->get('logout', 'Auth\AuthController@logout')->name('logout');
 /**
  * Recuperação.
  */
-$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('register');
-$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('reset');
 $this->post('password/reset', 'Auth\PasswordController@reset');
+$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('reset.send');
 
 /**
  * Idéias.
