@@ -2,6 +2,8 @@
 
 namespace App\Berro\Traits;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait Searchable
 {
     /**
@@ -30,15 +32,31 @@ trait Searchable
     {
         $builder = $this->newQuery();
 
-        if (!$this->request->has($key = $this->getSearchableKey())) {
+        if (!$this->hasSearchableParam()) {
             return $builder;
         }
 
-        foreach ($this->getSearchableAttributes() as $searchable) {
-            $builder->orWhere($searchable, 'like', '%' . $this->request->get($key) . '%');
+        return $this->makeSearchable($builder);
+    }
+
+    /**
+     * Transforma uma query em uma query pesquisável, útil quando
+     * você vai aplicar a pesquisa em uma query que já esta pronta.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $builder
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function makeSearchable(Builder $builder)
+    {
+        $query = $builder->getModel()->newQueryWithoutScopes()->getQuery();
+
+        foreach ($this->getSearchableAttributes() as $attribute) {
+            $query->orWhere(
+                $attribute, 'like', '%' . $this->getSearchableParamValue() . '%'
+            );
         }
 
-        return $builder;
+        return $builder->addNestedWhereQuery($query, 'and');
     }
 
     /**
@@ -52,13 +70,36 @@ trait Searchable
     }
 
     /**
-     * Retorna o nome da chave que devemos pegar da request e utilizar
-     * na pesquisa.
+     * Verifica se a request atual tem a chave utilizada na
+     * pesquisa.
+     *
+     * @return bool
+     */
+    protected function hasSearchableParam()
+    {
+        return $this->request->has($this->getSearchableParamName());
+    }
+
+    /**
+     * Retorna o nome do parâmetro da request que vamos utilizar na
+     * pesquisa.
      *
      * @return string
      */
-    protected function getSearchableKey()
+    protected function getSearchableParamName()
     {
-        return property_exists($this, 'searchableKey') ? $this->searchableKey : 'search';
+        return property_exists($this, 'searchableParam') ? $this->searchableParam : 'search';
+    }
+
+    /**
+     * Retorna o valor do parâmetro da request que vamos utilizar na
+     * pesquisa.
+     *
+     * @param  mixed  $default
+     * @return mixed
+     */
+    protected function getSearchableParamValue($default = null)
+    {
+        return $this->request->get($this->getSearchableParamName(), $default);
     }
 }
