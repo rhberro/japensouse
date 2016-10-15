@@ -33,7 +33,7 @@ class IdeasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $ideas = $this->repository->search();
         return view('ideas.index', compact('ideas'));
