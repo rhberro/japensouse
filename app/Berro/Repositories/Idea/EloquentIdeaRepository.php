@@ -53,7 +53,8 @@ class EloquentIdeaRepository extends EloquentRepository implements IdeaRepositor
      */
     public function authenticatedUserFavourited($quantity = 10, $columns = ['*'])
     {
-        return $this->auth->user()->favourited()->paginate($quantity, $columns);
+        $relationship = $this->auth->user()->favourited();
+        return $this->makeSearchable($relationship->getQuery())->paginate($quantity, $columns);
     }
 
     /**
@@ -61,7 +62,8 @@ class EloquentIdeaRepository extends EloquentRepository implements IdeaRepositor
      */
     public function authenticatedUserApproved($quantity = 10, $columns = ['*'])
     {
-        return $this->auth->user()->approved()->paginate($quantity, $columns);
+        $relationship = $this->auth->user()->approved();
+        return $this->makeSearchable($relationship->getQuery())->paginate($quantity, $columns);
     }
 
     /**
@@ -69,7 +71,8 @@ class EloquentIdeaRepository extends EloquentRepository implements IdeaRepositor
      */
     public function authenticatedUserPreapproved($quantity = 10, $columns = ['*'])
     {
-        return $this->auth->user()->preapproved()->paginate($quantity, $columns);
+        $relationship = $this->auth->user()->preapproved();
+        return $this->makeSearchable($relationship->getQuery())->paginate($quantity, $columns);
     }
 
     /**
@@ -77,6 +80,7 @@ class EloquentIdeaRepository extends EloquentRepository implements IdeaRepositor
      */
     public function authenticatedUserRemoved($quantity = 10, $columns = ['*'])
     {
-        return $this->auth->user()->removed()->paginate($quantity, $columns);
+        $relationship = $this->auth->user()->removed();
+        return $this->makeSearchable($relationship->getQuery())->paginate($quantity, $columns);
     }
 }
