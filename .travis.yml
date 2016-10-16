@@ -11,6 +11,9 @@ before_script:
   - cp .env.example .env
   - composer install --no-interaction
   - npm install -g yarn
+  - npm install -g n
+  - npm n stable
+  - node -v
   - yarn
   - php artisan key:generate
   - gulp
