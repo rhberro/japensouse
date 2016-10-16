@@ -6,13 +6,9 @@ language: php
 php:
   - 5.5.9
 
-env:
-  - NODE_RELEASE=5.x
-  - NODE_RELEASE=6.x
-
 before_install:
   - sudo rm -rf ~/.nvm
-  - curl -sL "https://deb.nodesource.com/setup_${NODE_RELEASE}" | sudo -E bash -
+  - curl -sL "https://deb.nodesource.com/setup_4.x" | sudo -E bash -
   - sudo apt-get install -y nodejs
 
 before_script:
