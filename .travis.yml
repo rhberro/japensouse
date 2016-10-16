@@ -12,6 +12,7 @@ before_script:
   - composer install --no-interaction
   - npm install -g yarn
   - npm install -g n
+  - n stable
   - node -v
   - yarn
   - php artisan key:generate
