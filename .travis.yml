@@ -8,9 +8,8 @@ sudo: false
 before_script:
   - cp .env.example .env
   - composer install --no-interaction
-  - npm install
-  - npm install webpack
-  - npm install underscore
+  - npm install -g yarn
+  - yarn
   - php artisan key:generate
   - gulp
 
