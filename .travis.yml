@@ -2,6 +2,8 @@ language: php
 
 php:
   - 5.5.9
+node_js:
+  - 4.6.0
 
 sudo: false
 
