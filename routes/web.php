@@ -7,16 +7,17 @@ Route::get('/', 'HomeController@index')->name('home');
 /**
  * Autenticação.
  */
-$this->get('login', 'Auth\AuthController@showLoginForm')->name('login');
-$this->post('login', 'Auth\AuthController@login');
-$this->get('logout', 'Auth\AuthController@logout')->name('logout');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 /**
  * Recuperação.
  */
-$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('reset');
-$this->post('password/reset', 'Auth\PasswordController@reset');
-$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('reset.send');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('reset.send');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 /**
  * Idéias.

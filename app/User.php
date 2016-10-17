@@ -5,10 +5,11 @@ namespace App;
 use App\Traits\Eloquent\Presentable;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Presentable;
+    use Notifiable, Presentable;
 
     /**
      * Atributos que podem ser atribuídos em massa.

@@ -17,15 +17,18 @@
                 <li class="{{ Route::is('users*') ? 'active' : null }}">
                     <a href="{{ route('users') }}">Usuários</a>
                 </li>
-                {{--<li class="{{ Route::is('reports*') ? 'active' : null }}">--}}
-                    {{--<a href="{{ route('reports') }}">Relatórios</a>--}}
-                {{--</li>--}}
             @endif
         </ul>
 
         @if (Auth::check())
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('logout') }}">Saír</a></li>
+                <li>
+                    <form id="logout" method="post" action="{{ route('logout') }}">
+                        {{ csrf_field() }}
+                    </form>
+
+                    <a href="#" onclick="document.getElementById('logout').submit();">Saír</a>
+                </li>
             </ul>
 
             <p class="navbar-text navbar-right">Olá, <a href="{{ route('users.show', auth()->id()) }}" class="navbar-link">{{ auth()->user()->name }}</a></p>
