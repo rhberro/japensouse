@@ -1,23 +1,24 @@
 sudo: required
-
 language: php
-
 php:
-  - '5.6'
-
+- '5.6'
+deploy:
+  provider: heroku
+  app:
+    master: japensouse-production
+    dev: japensouse-development
+  api_key:
+    secure: qB0MZA7PSf77MO4LaO7AA/ov1W8vYnLxz3fAOmZuMav/OoAvEGUfUPoKmOja5Fz4gYk8SYpqhk6Cg1T71EI+61frR8JXupwsWcm17zyK55TIfg1z/E5Clv/4sDwsMSya1/AM9i0f/f9i8LOBYSDyuO/V+VyWB4A2/xlGYmtoU0vel/VUqf0LCMP4W6vzTgm0aX2amJFsFwZasLyYvwWFI6PK59g0O1bN1zJKJbOMI8uRu4pQIRRzTEmezBKELZ1wjR/0tF1NC6/PYbYDbbfCKsyw8uvoTh+Lccndrhn0aA5SLUql8owV3cjP5fCqI9N85sPChYMesq+8T8QQ2cwzT4r5kaqWBi7BV2/VnG3W0+OoCofFbOa6IZ49euspWmHmEzDIi4CK8Qul+N26OJJPM8lX6/vOe4GCYWIFaF/it+DAEJmuypORUCRetwh/6eXM12qLmCJzgW/dM2wkEMKPfQtbDB/IGGXWUWaTPWSgyl9nGD9ofjsqr+spZMVuVfkG08FU63+EapbVUOD84eBT1uJ4ff3PZI8kcmWlGFI4dtvNrP8R1hrYI/QVyos6++xSZq+LDs0pDVJTYETGxF8Ey7MP9uHPi/q6B9NaBHiX/f82QYG5MkkUv5prk7tsiMGfydyBHMYBQZG2K77kcLeaTNGcpSw39Uc/4WLn3ilYDno=
 before_install:
-  - sudo rm -rf ~/.nvm
-  - curl -sL "https://deb.nodesource.com/setup_4.x" | sudo -E bash -
-  - sudo apt-get install -y nodejs
-
+- sudo rm -rf ~/.nvm
+- curl -sL "https://deb.nodesource.com/setup_4.x" | sudo -E bash -
+- sudo apt-get install -y nodejs
 before_script:
-  - cp .env.example .env
-  - composer install --no-interaction
-  - sudo npm install -g yarn
-  - yarn
-  - php artisan key:generate
-  - gulp
-
-
+- cp .env.example .env
+- composer install --no-interaction
+- sudo npm install -g yarn
+- yarn
+- php artisan key:generate
+- gulp
 script:
-  - vendor/bin/phpunit
+- vendor/bin/phpunit
