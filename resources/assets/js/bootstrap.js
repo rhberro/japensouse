@@ -12,7 +12,7 @@ require('bootstrap-sass');
  * da aplicação.
  */
 window.Turbolinks = require('turbolinks');
-// Turbolinks.start();
+Turbolinks.start();
 
 /**
  * Carrega o componente Chart.js que é responsável por todos

@@ -16,6 +16,10 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         /**
+         * Custom Middlewares...
+         */
+        \App\Http\Middleware\Turbolinks::class,
+        /**
          * Clockwork.
          */
 //        \Clockwork\Support\Laravel\ClockworkMiddleware::class,
