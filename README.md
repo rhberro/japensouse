@@ -1,7 +1,6 @@
 # Japensouse
 
 [ ![StyleCI](https://styleci.io/repos/70777400/shield?branch=master)](https://styleci.io/repos/70777400)
-[ ![Build Status](https://travis-ci.org/rhberro/japensouse.svg?branch=master)](https://travis-ci.org/rhberro/japensouse)
 
 ## Descrição
 
