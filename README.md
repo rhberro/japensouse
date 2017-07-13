@@ -1,7 +1,5 @@
 # Japensouse
 
-[ ![StyleCI](https://styleci.io/repos/70777400/shield?branch=master)](https://styleci.io/repos/70777400)
-
 Este é um projeto pessoal que inicialmente foi criado para auxiliar no gerenciamento de idéias enviadas através de uma página na web. Atualmente o projeto serve como um estudo do framework e não está em uso.
 
 ---
